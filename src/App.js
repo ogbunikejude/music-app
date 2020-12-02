@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import axios from 'axios'
 import image from './banner.png'
 import Track from './component/Tracklist'
+// import showLyrics from './component/lyrics'
 import './App.css';
 
 function App() {
@@ -17,10 +18,8 @@ axios.get(API_URL) .then((res) => {
 
     }, [])
 
-
-
     useEffect(function() {
-      const id='[201234497,201621042,200360817]'
+      const id= '201234497'
       const API_KEY= 'fddd8ab1808d8700b4112d8f508a8659'
       const API_URL1='https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=' + id + API_KEY
 
@@ -29,6 +28,7 @@ axios.get(API_URL) .then((res) => {
       })
     }, [])
 
+    
 
     
   return (

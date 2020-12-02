@@ -86,10 +86,24 @@ nav a:hover  {
 .music-card {
   color: aliceblue;
   display: inline;
+ 
   /* justify-content: center; */
   /* flex: wrap; */
 }
 
 .music-card img{
   width: 100px;
+}
+.display{
+  display: block;
+  background-color: #fff;
+  color: black;
+  padding: 0 30px;
+  padding-bottom: 20px;
+}
+.undisplay {
+  display: none;
+}
+.button {
+  margin-bottom: 30px;
 }
