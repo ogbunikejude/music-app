@@ -30,7 +30,7 @@ function Track(props) {
    
    return (         
     <div className="row">
-    <img src={mp}/>
+    <img src={mp} alt="mp3 logo"/>
     <h4>Track name: {props.track.track.track_name}</h4>
    
   <p>Artist: {props.track.track.artist_name}</p>
