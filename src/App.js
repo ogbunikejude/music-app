@@ -36,12 +36,12 @@ axios.get(API_URL).then((res) => {
       <header className="App-header">
         <div className="container">
           <div className="Row">
-          <a href="#" className="logo">Jude Music Blog</a>
+          <a href="/" className="logo">Jude Music Blog</a>
           <nav>
-            <a href="#">Home</a>
-            <a href="#">Charts </a>
-            <a href="#">Lyrics</a>
-            <a href="#">Latest</a>
+            <a href="/">Home</a>
+            <a href="/">Charts </a>
+            <a href="/">Lyrics</a>
+            <a href="/">Latest</a>
           </nav>
           </div>
         </div>
