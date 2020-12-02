@@ -107,3 +107,7 @@ nav a:hover  {
 .button {
   margin-bottom: 30px;
 }
+.display p {
+  font-weight: 600;
+  border-bottom: 5px solid red;
+}
