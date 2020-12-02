@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import React, { useRef, useState } from 'react'
 import mp from '../mp.png'
-import showLyrics from './lyrics'
+// import showLyrics from './lyrics'
 
 
 function Track(props) {
@@ -38,7 +38,8 @@ function Track(props) {
   <button className="button" onClick= {handleclick} ref={btn} value={props.track.track.track_id} >Show Lyrics</button>
   <div className={open ? 'display' : 'undisplay'}>
 <span className="exit" onClick = {displayblock }>X</span>
-<p>Track Lyrics</p>
+<h2>Track Lyrics</h2>
+<p>{props.track.track.track_name}</p>
 <div>{lyrics}</div>
   </div>
 
