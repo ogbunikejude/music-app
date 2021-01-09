@@ -4,51 +4,41 @@ import { useEffect, useState } from "react"
 import axios from 'axios'
 import image from './banner.png'
 import Track from './component/Tracklist'
-// import showLyrics from './component/lyrics'
+import { ReactComponent as SearchIcon } from './SearchIcon.svg';
 import './App.css';
 
 function App() {
   const [tracks, setTracks] = useState(null)
-  const [currentTrack, setCurrentTrack] = useState(null)
     useEffect(function() {
-        const API_URL='https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&page=1&page_size=10&country=us&f_has_lyrics=1&apikey=fddd8ab1808d8700b4112d8f508a8659'
-axios.get(API_URL) .then((res) => {
+  const API_URL='https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&page=1&page_size=10&country=us&f_has_lyrics=1&apikey=fddd8ab1808d8700b4112d8f508a8659'
+axios.get(API_URL).then((res) => {
     setTracks(res.data.message.body.track_list)
 })
 
     }, [])
-
-    useEffect(function() {
-      const id= '201234497'
-      const API_KEY= 'fddd8ab1808d8700b4112d8f508a8659'
-      const API_URL1='https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=' + id + API_KEY
-
-      axios.get(API_URL1) .then((res)=> {
-        setCurrentTrack(res.data.message.body.lyrics)
-      })
-    }, [])
-
-    
-
     
   return (
     <div className="App">
       <header className="App-header">
         <div className="container">
           <div className="Row">
-          <a href="#" className="logo">Jude Music Blog</a>
+          <a href="/" className="logo">Jude Music Blog</a>
+          <div className="searchbar">
+          <input type="text" name="Search" placeholder="Search Music.." ></input>
+          <button type="submit"><SearchIcon style={{ width: '2rem' }} /></button>
+          </div>
           <nav>
-            <a href="#">Home</a>
-            <a href="#">Charts </a>
-            <a href="#">Lyrics</a>
-            <a href="#">Latest</a>
+            <a href="/">Home</a>
+            <a href="/">Charts </a>
+            <a href="/">Lyrics</a>
+            <a href="/">Latest</a>
           </nav>
           </div>
         </div>
       </header>
       <section className="banner" >
         <div className="banner1"> 
-        <img src={image} />
+        <img src={image} alt="banner"/>
         </div>
       </section>
       <section className="track-list">
@@ -58,7 +48,7 @@ axios.get(API_URL) .then((res) => {
           <div className="row">
   <div className="music-card">
   <div>
-            {tracks ? tracks.map((track) => <Track track={track} setCurrentTrack={setCurrentTrack}/>) : <p>loading...</p>}
+            {tracks ? tracks.map((track) => <Track track={track} />) : <p>loading...</p>}
            
         </div>
        
@@ -70,6 +60,19 @@ axios.get(API_URL) .then((res) => {
           
   
       </section>
+      <footer>
+      <div className="container">
+      <div className="Row">
+          <nav>
+            <a href="/">About</a>
+            <a href="/">Contact Us</a>
+            <a href="/">Help</a>
+            <a href="/">Popular Searches</a>
+            <a href="/">Blog</a>
+          </nav>
+          </div>  
+      </div>
+      </footer>
     </div>
   );
 }
